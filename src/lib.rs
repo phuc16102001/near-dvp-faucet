@@ -183,6 +183,7 @@ impl FungibleTokenReceiver for FaucetContract {
         );
 
         self.available_balance += amount;
+        env::log(format!("Receive {} tokens from {}", &amount, &sender_id).as_bytes());
 
         PromiseOrValue::Value(0)
     }
